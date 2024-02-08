@@ -43,53 +43,20 @@
             android:id="@+id/textViewTodaysTasks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="25sp"
+            android:layout_marginEnd="8dp"
             android:text="@string/todays_tasks"
             android:textColor="#FFFFFF"
-            android:textSize="25sp"
-            android:layout_marginTop="25sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"/>
+            android:textSize="25sp" />
 
-        <TextView
-            android:id="@+id/textViewTodaysTasksList"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewHome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/_1_dishes"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:layout_marginTop="25sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"/>
-        <TextView
-            android:id="@+id/textViewTodaysTasksList1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/_1_dishes"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:layout_marginTop="25sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"/>
-        <TextView
-            android:id="@+id/textViewTodaysTasksList2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/_1_dishes"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:layout_marginTop="25sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"/>
-        <TextView
-            android:id="@+id/textViewTodaysTasksList3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/_1_dishes"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:layout_marginTop="25sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"/>
+            android:layout_height="500sp"
+            android:padding="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_task" />
 
     </LinearLayout>
 </ScrollView>

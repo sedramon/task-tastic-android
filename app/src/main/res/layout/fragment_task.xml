@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollViewTask"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.tasks.TaskFragment" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:layout_marginBottom="30sp"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addTaskButton"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="250sp"
+            android:layout_height="60sp"
+            android:layout_marginBottom="30sp"
+            android:text="@string/add_task"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/teal_200"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTask"
+            android:layout_width="match_parent"
+            android:layout_height="440dp" />
+    </LinearLayout>
+</ScrollView>

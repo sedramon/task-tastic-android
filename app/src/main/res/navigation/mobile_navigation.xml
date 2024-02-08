@@ -12,14 +12,9 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="rs.ac.tasktastic.ui.gallery.GalleryFragment"
+        android:id="@+id/nav_task"
+        android:name="rs.ac.tasktastic.ui.tasks.TaskFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_task" />
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="rs.ac.tasktastic.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
 </navigation>

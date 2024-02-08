@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.2:8080")
+                .baseUrl("http://192.168.1.53:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -82,16 +82,21 @@ public class LoginActivity extends AppCompatActivity {
         String password = String.valueOf(editTextPassword.getText());
 
         boolean isUserValid = false;
+        User currentUser = null;
 
         for (User user : userList) {
             if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
                 isUserValid = true;
+                currentUser = user;
                 break;
             }
         }
 
         if(isUserValid) {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.putExtra("ID", currentUser.getId());
+            intent.putExtra("USERNAME", currentUser.getUsername().toUpperCase());
+            intent.putExtra("EMAIL", currentUser.getEmail());
             startActivity(intent);
             finish();
         } else {
