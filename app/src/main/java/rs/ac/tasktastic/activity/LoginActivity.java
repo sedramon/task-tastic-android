@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
         if(isUserValid) {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             intent.putExtra("ID", currentUser.getId());
-            intent.putExtra("USERNAME", currentUser.getUsername().toUpperCase());
+            intent.putExtra("USERNAME", currentUser.getUsername());
             intent.putExtra("EMAIL", currentUser.getEmail());
             startActivity(intent);
             finish();

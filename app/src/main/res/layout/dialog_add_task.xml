@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/side_nav_bar"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingHorizontal="20sp">
+
+    <EditText
+        android:id="@+id/editTextTitleDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:ems="10"
+        android:hint="@string/title"
+        android:inputType="text"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="22sp" />
+
+    <EditText
+        android:id="@+id/editTextDescriptionDialog"
+        android:layout_width="match_parent"
+        android:layout_height="200sp"
+        android:layout_marginBottom="20sp"
+        android:ems="10"
+        android:hint="@string/description"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
+        android:gravity="top|start"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:lines="4"
+        android:maxLines="10"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textViewPickedEndDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/pickEndDate"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="200sp"
+        android:layout_height="60sp"
+        android:layout_marginBottom="100sp"
+        android:text="Pick End Date"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/teal_200"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonConfirmTask"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="250sp"
+        android:layout_height="60sp"
+        android:layout_marginBottom="30sp"
+        android:text="@string/confirm"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/teal_200"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
+
+</LinearLayout>

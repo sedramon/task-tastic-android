@@ -12,11 +12,13 @@ public class TaskViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
     private final MutableLiveData<List<Task>> taskListLiveData;
+    private final MutableLiveData<String> userIdLiveData;
 
     public TaskViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is where you can see all your tasks!");
         taskListLiveData = new MutableLiveData<>();
+        userIdLiveData = new MutableLiveData<>();
     }
 
     public LiveData<String> getText() {
@@ -29,6 +31,14 @@ public class TaskViewModel extends ViewModel {
 
     public void updateTaskList(List<Task> tasks) {
         taskListLiveData.setValue(tasks);
+    }
+
+    public LiveData<String> getUserId() {
+        return userIdLiveData;
+    }
+
+    public void setUserId(String userId) {
+        userIdLiveData.setValue(userId);
     }
 
 

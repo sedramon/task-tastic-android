@@ -50,6 +50,13 @@
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
+        <Button
+            android:id="@+id/buttonDeleteTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:textColor="#FFFFFF" />
+
         <!-- Add more views as needed for other task fields -->
 
     </LinearLayout>
