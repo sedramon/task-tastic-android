@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +55,7 @@ public class TaskFragment extends Fragment {
 
     private RecyclerView recyclerViewTask;
     private TaskAdapter taskAdapter;
+    private SearchView searchView;
     private Task task = new Task();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -67,6 +69,22 @@ public class TaskFragment extends Fragment {
 
         final TextView textView = binding.textViewTask;
         taskViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+        searchView = binding.searchViewTaskFragment;
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                taskAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
+
 
         taskViewModel.getUserId().observe(getViewLifecycleOwner(), userId -> {
             User user = new User();

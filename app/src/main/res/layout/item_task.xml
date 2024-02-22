@@ -57,6 +57,22 @@
             android:text="Delete"
             android:textColor="#FFFFFF" />
 
+        <Button
+            android:id="@+id/buttonSetNotCompleted"
+            android:layout_width="175sp"
+            android:layout_height="wrap_content"
+            android:text="NOT FINISHED"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FF0000"/>
+
+        <Button
+            android:id="@+id/buttonSetFinished"
+            android:layout_width="175sp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#008000"
+            android:text="Finished"
+            android:textColor="#FFFFFF" />
+
         <!-- Add more views as needed for other task fields -->
 
     </LinearLayout>
