@@ -13,12 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -75,11 +80,19 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         });
 
         holder.setNotFinished.setOnClickListener(view -> {
-            setIsFinished(task.getId(), false);
+            try {
+                setIsFinished(task, false);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         holder.setFinished.setOnClickListener(view -> {
-            setIsFinished(task.getId(), true);
+            try {
+                setIsFinished(task, true);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
         });
         // Add more fields as needed
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault());
@@ -139,24 +152,31 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         });
     }
 
-    private void setIsFinished(String taskId, boolean status) {
+    private void setIsFinished(Task task, boolean status) throws ParseException {
+        Log.d("SetIsFinished", "Creating newTask: " + task.getId() + ", isFinished: " + status);
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://192.168.1.53:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         TaskApiService taskApiService = retrofit.create(TaskApiService.class);
 
+        Task newTask = new Task();
+        newTask.setId(task.getId());
+        newTask.setFinished(status);
 
-        TaskRequestBody requestBody = new TaskRequestBody(status);
-        Call<Void> call = taskApiService.updateTaskIsFinished(taskId, requestBody);
+        System.out.println("SENDING TASK: " + newTask.getId());
+        System.out.println("STATUS : " + newTask.isFinished());
+
+        Call<Void> call = taskApiService.updateTaskIsFinished(newTask);
 
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
-                    for (Task task : taskList) {
-                        if (task.getId() == taskId) {
-                            task.setFinished(status);
+                    for (Task taskItem : taskList) {
+                        if (taskItem.getId().equals(task.getId())) {
+                            taskItem.setFinished(status);
                             break;
                         }
                     }

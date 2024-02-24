@@ -23,6 +23,6 @@ public interface TaskApiService {
     @DELETE("/api/tasks/{id}")
     Call<Void> deleteTask(@Path("id") String taskId);
 
-    @PUT("/api/tasks/{id}")
-    Call<Void> updateTaskIsFinished(@Path("id") String taskId, @Body TaskRequestBody taskRequestBody);
+    @PUT("/api/tasks/update")
+    Call<Void> updateTaskIsFinished(@Body Task task);
 }

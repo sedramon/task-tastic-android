@@ -6,18 +6,19 @@ public class Task {
     private String id, title, description;
     private User user;
     private Date createdDate, endDate;
-    private boolean isFinished = false;
+    private boolean isFinished;
 
     public Task() {
     }
 
-    public Task(String id, User user, String title, String description, Date createdDate, Date endDate) {
+    public Task(String id, User user, String title, String description, Date createdDate, Date endDate, boolean isFinished) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.user = user;
         this.createdDate = createdDate;
         this.endDate = endDate;
+        this.isFinished = isFinished;
     }
 
     public String getId() {
