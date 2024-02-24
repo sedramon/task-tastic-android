@@ -18,7 +18,7 @@
     <string name="enter_your_password">Enter your password...</string>
     <string name="enter_your_username">Enter your username...</string>
     <string name="welcome_to_task_tastic">Welcome to Task-tastic!</string>
-    <string name="signup">SINGUP</string>
+    <string name="signup">SIGN UP</string>
     <string name="loginButton">Login</string>
     <string name="add_task">+ Add Task</string>
     <string name="title_activity_user_profile">UserProfileActivity</string>
