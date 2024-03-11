@@ -131,7 +131,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     private void deleteTask(String taskId, int position) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.53:8080")
+                .baseUrl("http://192.168.1.2:8080")
                 .build();
         TaskApiService taskApiService = retrofit.create(TaskApiService.class);
 
@@ -156,7 +156,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         Log.d("SetIsFinished", "Creating newTask: " + task.getId() + ", isFinished: " + status);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.53:8080")
+                .baseUrl("http://1192.168.1.2:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         TaskApiService taskApiService = retrofit.create(TaskApiService.class);
